@@ -1,0 +1,6 @@
+- name: Create Group
+  azure_rm_adgroup:
+    tenant: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+    display_name: "Group-Name"
+    mail_nickname: "Group-Mail-Nickname"
+    state: 'present'

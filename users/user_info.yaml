@@ -1,0 +1,31 @@
+- name: Using user_principal_name
+  azure.azcollection.azure_rm_aduser_info:
+    user_principal_name: user@gregs.cz
+    tenant: 6d2a7f88-8169-43e2-86cb-7fd099633466
+
+- name: Using object_id
+  azure.azcollection.azure_rm_aduser_info:
+    object_id: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+    tenant: 6d2a7f88-8169-43e2-86cb-7fd099633466
+
+- name: Using attribute mailNickname - not a collection
+  azure.azcollection.azure_rm_aduser_info:
+    attribute_name: mailNickname
+    attribute_value: users_mailNickname
+    tenant: 6d2a7f88-8169-43e2-86cb-7fd099633466
+
+- name: Using attribute proxyAddresses - a collection
+  azure.azcollection.azure_rm_aduser_info:
+    attribute_name: proxyAddresses
+    attribute_value: SMTP:user@gregs.cz
+    tenant: 6d2a7f88-8169-43e2-86cb-7fd099633466
+
+- name: Using Filter mailNickname
+  azure.azcollection.azure_rm_aduser_info:
+    odata_filter: mailNickname eq 'user@gregs.cz'
+    tenant: 6d2a7f88-8169-43e2-86cb-7fd099633466
+
+- name: Using Filter proxyAddresses
+  azure.azcollection.azure_rm_aduser_info:
+    odata_filter: proxyAddresses/any(c:c eq 'SMTP:user@gregs.cz')
+    tenant: 6d2a7f88-8169-43e2-86cb-7fd099633466
