@@ -1,7 +1,7 @@
 - name: Create user
   azure_rm_aduser:
     user_principal_name: "{{ user_id }}"
-    tenant: "{{ tenant_id }}"
+    tenant: "6d2a7f88-8169-43e2-86cb-7fd099633466"
     state: "present"
     account_enabled: "True"
     display_name: "Test_{{ user_principal_name }}_Display_Name"
